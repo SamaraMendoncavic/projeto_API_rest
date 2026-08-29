@@ -1,0 +1,939 @@
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+/*Aboreto*/
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC&display=swap');
+/*Alegreya Sans SC*/
+
+/* Aqui inicia-se o header */
+
+* {
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    font-family: 'Alegreya Sans SC';
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100dvh;
+    background-color: #FFFAF1;
+}
+
+.header {
+    padding: 10px 0px;
+    border-bottom: 2px solid #DF2588;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Alegreya Sans SC';
+    position: fixed;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 100%;
+
+}
+
+.header,
+.header ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.header ul li {
+    padding-right: 32px;
+    font-size: 14px;
+    opacity: 100;
+}
+
+.header ul li a {
+    position: relative;
+    opacity: 100%;
+}
+
+.header ul li a::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background-color: black;
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transition: 0.3s;
+}
+
+.header ul li a:hover::after {
+    width: 100%;
+    left: 0%;
+}
+
+.header ul li:nth-of-type(4) {
+    border-right: 1.5px solid black;
+    padding-right: 16px;
+}
+
+.header ul li:nth-of-type(5) {
+    padding-left: 16px;
+}
+
+.logo_wrapper {
+    margin-right: 50px;
+}
+
+.logo:hover {
+    cursor: pointer;
+}
+
+.header ul li a,
+.header button a {
+    color: black;
+}
+
+.header button {
+    padding: 10px 15px;
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: transparent;
+    transition: all 0.3s;
+
+}
+
+.header button:hover {
+    padding: 10px 15px;
+    border: 2px solid #DF2588;
+    border-radius: 8px;
+    background-color: #DF2588
+}
+
+.header button:hover a {
+    color: #E9F4DA
+}
+
+
+/* Aqui se inicia o home e finaliza o header */
+
+.content-wrapper {
+    width: 100%;
+    padding-top: 40dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #99C1B9;
+    height: 300dvh;
+}
+
+.hero_content {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    max-width: 1200px;
+    gap: 40px;
+    /* espaçamento entre linhas */
+    align-items: center;
+    padding-bottom: 200px;
+}
+
+.main_text {
+    width: 60%;
+    text-align: center;
+    text-align: center;
+}
+
+.main_text h2 {
+    font-family: Aboreto;
+    margin-bottom: 50px;
+    color: black;
+    font-size: 5dvh;
+    text-align: center;
+}
+
+.main_text p {
+    font-family: Aboreto;
+    margin-bottom: 15px;
+    font-size: 2.5dvh;
+    text-align: center;
+}
+
+.button_livros {
+    font-family: Alegreya Sans SC;
+    font-size: 18px;
+    justify-self: center;
+    width: 20%;
+    padding: 6px;
+    background-color: #DF2588;
+    color: #FFFAF1;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.button_livros a {
+    color: #FFFAF1;
+}
+
+/* aqui começa sobre o site */
+
+.social {
+    margin-top: 7dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+    margin-bottom: 10dvh;
+}
+
+.social .container {
+    justify-content: center;
+}
+
+
+.social .container .boxes {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 30px 0;
+}
+
+.social p {
+    font-family: Aboreto;
+    text-align: center;
+    font-size: 2dvh;
+}
+
+.social h4 {
+    font-family: Aboreto;
+    text-align: center;
+    font-size: 2.5dvh;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.sobre .content_escritora {
+    width: 100%;
+    padding-top: 10dvh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #99C1B9;
+    height: 80dvh;
+    padding-bottom: 10dvh;
+}
+
+.sobre .content_escritora img {
+    width: 50dvh;
+}
+
+
+.sobre .main_text {
+    font-family: Aboreto;
+}
+
+.sobre .main_text h2 {
+    font-family: Aboreto;
+    font-size: 5dvh;
+    text-align: left;
+}
+
+.sobre .main_text p {
+    font-family: Aboreto;
+    font-size: 2.5dvh;
+    text-align: left;
+}
+
+.sobre_mim .content_mim {
+    width: 100%;
+    padding-top: 20dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover;
+    height: 100dvh;
+    padding-bottom: 10dvh;
+    gap: 25px;
+}
+
+.sobre_mim .content_mim h2 {
+    font-family: 'Aboreto';
+    font-size: 5dvh;
+}
+
+
+.sobre_mim .content_mim img {
+    width: 50dvh;
+}
+
+.sobre_texto {
+    width: 100%;
+    padding-top: 20dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100dvh;
+    padding-bottom: 10dvh;
+    background-color: #D8E2DC;
+}
+
+.sobre_texto .main_text {
+    text-align: justify;
+}
+
+.sobre_texto .main_text h4 {
+    font-family: Aboreto;
+    font-size: 2.5dvh;
+    text-align: left;
+    text-align: center;
+}
+
+.sobre_texto .main_text p {
+    font-family: Alegreya Sans SC;
+    font-size: 3dvh;
+    text-align: left;
+}
+
+.colecao .colecao_livros {
+    width: 100%;
+    padding-top: 10dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 90dvh;
+    padding-bottom: 10dvh;
+    background-color: #99C1B9;
+}
+
+.colecao .colecao_livros h2 {
+    font-family: 'Aboreto';
+    font-size: 5dvh;
+}
+
+
+.colecao .colecao_livros img {
+    width: 70dvh;
+}
+
+/* Aqui se finaliza o home parte 1 
+e inicia o home parte 2 */
+
+.content-wrapper_2 {
+    width: 100%;
+    padding-top: 13dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 300dvh;
+}
+
+.hero_content_2 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    max-width: 1200px;
+    gap: 40px;
+    /* espaçamento entre linhas */
+    align-items: center;
+    padding-bottom: 200px;
+}
+
+.main_text_2 {
+    align-items: center;
+}
+
+.livros {
+    display: flex;
+    height: fit-content;
+    margin-top: 4dvh;
+    justify-content: center;
+
+}
+
+.main_text_2 h2 {
+    font-family: Aboreto;
+    color: black;
+    font-size: 5dvh;
+    align-self: center;
+}
+
+.imagem_livros {
+    width: 12dvh;
+    height: auto;
+    margin-bottom: 1dvh;
+}
+
+.main_text_2 p {
+    font-family: Aboreto;
+    margin-bottom: 15px;
+    font-size: 3dvh;
+    text-align: center;
+}
+
+/* aqui começa sobre os livros de romance */
+
+.social_2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+    background-color: #FFCAD4;
+    padding-bottom: 15dvh;
+}
+
+.container_2 {
+    justify-content: center;
+    width: 100%;
+}
+
+.social_2 .container_2 p {
+    font-family: Aboreto;
+    text-align: center;
+    font-size: 3.5dvh;
+    margin-top: 7dvh;
+}
+
+
+.social_2 .container_2 .boxes_todos {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 30px 30px;
+}
+
+.box_1 {
+    padding-top: 2dvh;
+    width: 40dvh;
+    height: 55dvh;
+    background-color: #fff;
+    justify-items: column;
+    text-align: center;
+    padding-bottom: 2dvh;
+}
+
+.box_1 h4 {
+    font-family: Aboreto;
+    font-size: 2dvh;
+}
+
+.box_1 button {
+    font-family: Alegreya Sans SC;
+    font-size: 1.5dvh;
+    justify-self: center;
+    width: 30%;
+    padding: 1dvh;
+    margin: 4dvh;
+    background-color: #D8E2DC;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.box_1:hover img {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.box_2 {
+    padding-top: 2dvh;
+    width: 40dvh;
+    height: 55dvh;
+    background-color: #fff;
+    justify-items: column;
+    text-align: center;
+    padding-bottom: 2dvh;
+}
+
+.box_2 h4 {
+    font-family: Aboreto;
+    font-size: 2dvh;
+}
+
+.box_2 button {
+    font-family: Alegreya Sans SC;
+    font-size: 1.5dvh;
+    justify-self: center;
+    width: 30%;
+    padding: 1dvh;
+    margin: 4dvh;
+    background-color: #D8E2DC;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.box_2:hover img {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.box_3 {
+    padding-top: 2dvh;
+    width: 40dvh;
+    height: 55dvh;
+    background-color: #fff;
+    justify-items: column;
+    text-align: center;
+    padding-bottom: 2dvh;
+}
+
+.box_3 h4 {
+    font-family: Aboreto;
+    font-size: 2dvh;
+}
+
+.box_3 button {
+    font-family: Alegreya Sans SC;
+    font-size: 1.5dvh;
+    justify-self: center;
+    width: 30%;
+    padding: 1dvh;
+    margin: 4dvh;
+    background-color: #D8E2DC;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.box_3:hover img {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+/* aqui começa os livros de ficção */
+
+.social_3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+    background-color: #B8BEDD;
+}
+
+.container_3 {
+    justify-content: center;
+    width: 100%;
+}
+
+.social_3 .container_3 p {
+    font-family: Aboreto;
+    text-align: center;
+    font-size: 3.5dvh;
+    margin-top: 7dvh;
+}
+
+
+.social_3 .container_3 .boxes_todos_1 {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 30px 30px;
+}
+
+.box_4 {
+    padding-top: 2dvh;
+    width: 40dvh;
+    height: 55dvh;
+    background-color: #fff;
+    justify-items: column;
+    text-align: center;
+    padding-bottom: 2dvh;
+}
+
+.box_4 h4 {
+    font-family: Aboreto;
+    font-size: 2dvh;
+}
+
+.box_4 button {
+    font-family: Alegreya Sans SC;
+    font-size: 1.5dvh;
+    justify-self: center;
+    width: 30%;
+    padding: 1dvh;
+    margin: 4dvh;
+    background-color: #D8E2DC;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.box_4:hover img {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.box_5 {
+    padding-top: 2dvh;
+    width: 40dvh;
+    height: 55dvh;
+    background-color: #fff;
+    justify-items: column;
+    text-align: center;
+    padding-bottom: 2dvh;
+}
+
+.box_5 h4 {
+    font-family: Aboreto;
+    font-size: 2dvh;
+}
+
+.box_5 button {
+    font-family: Alegreya Sans SC;
+    font-size: 1.5dvh;
+    justify-self: center;
+    width: 30%;
+    padding: 1dvh;
+    margin: 4dvh;
+    background-color: #D8E2DC;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.box_5:hover img {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+.box_6 {
+    padding-top: 2dvh;
+    width: 40dvh;
+    height: 55dvh;
+    background-color: #fff;
+    justify-items: column;
+    text-align: center;
+    padding-bottom: 2dvh;
+}
+
+.box_6 h4 {
+    font-family: Aboreto;
+    font-size: 2dvh;
+}
+
+.box_6 button {
+    font-family: Alegreya Sans SC;
+    font-size: 1.5dvh;
+    justify-self: center;
+    width: 30%;
+    padding: 1dvh;
+    margin: 4dvh;
+    background-color: #D8E2DC;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.box_6:hover img {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+/* Aqui começa o modal e
+termina o index */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fundo semi-transparente */
+    display: none;
+    /* Uso flex para centralizar */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para a caixa do modal */
+.modal_body {
+    background-color: white;
+    padding: 6dvh;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    max-width: 70dvh;
+    width: 100%;
+    position: relative;
+    /* Para posicionar o botão de fechar, se necessário */
+}
+
+.modal_header {
+    text-align: center;
+    margin-bottom: 2dvh;
+}
+
+.modal_header h3 {
+    color: #DF2588;
+}
+
+.modal_text {
+    text-align: center;
+    margin-bottom: 2dvh;
+}
+
+.modal_ação {
+    display: flex;
+    justify-content: center;
+    margin-top: 4dvh;
+}
+
+.ação,
+.ação_sucesso {
+    padding: 1dvh 2dvh;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.ação {
+    background-color: #fff;
+}
+
+.ação_sucesso {
+    background-color: #DF2588;
+    color: white;
+}
+
+
+/* Aqui termina a home 
+e se inicia a tela de login */
+
+.login {
+    width: 100%;
+    padding-top: 30dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300dvh;
+    padding-bottom: 300px;
+    background-size: cover;
+}
+
+.login .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card_login {
+    width: 40dvh;
+    height: 35dvh;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.card_login h2 {
+    padding-top: 2dvh;
+    font-family: Alegreya Sans SC;
+    margin: 0;
+    font-size: 30px;
+}
+
+
+.cadastro {
+    width: 100%;
+    padding-top: 25dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 300dvh; */
+    padding-bottom: 20dvh;
+    background-size: cover;
+}
+
+.cadastro .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card_cadastro {
+    width: 50dvh;
+    height: 54dvh;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.card_cadastro h2 {
+    padding-top: 3dvh;
+    font-family: Alegreya Sans SC;
+    margin: 0;
+    font-size: 30px;
+}
+
+.formulario {
+    display: flex;
+    height: 10%;
+    width: 70%;
+    justify-content: space-around;
+    flex-direction: column;
+    padding-top: 1dvh;
+}
+
+.formulario span {
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.formulario .campo {
+    position: relative;
+}
+
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 5px 0;
+}
+
+.campo i {
+    position: absolute;
+    right: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.campo input {
+    width: 100%;
+    height: 100%;
+    padding: 1.3dvh;
+    background-color: transparent;
+    text-align: center;
+    border-radius: 2px;
+    margin: 0;
+    text-align: left;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    color: white;
+}
+
+.campo input::placeholder {
+    color: #fff;
+}
+
+.campo span {
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.botao {
+    cursor: pointer;
+    font-family: Alegreya Sans SC, sans-serif;
+    border: 0;
+    border-radius: 0.5dvh;
+    font-weight: 6dvh;
+    font-size: 18px;
+    color: #fff;
+    background-color: #DF2588;
+    width: 10dvh;
+    height: 5dvh;
+    align-self: center;
+    margin-top: 20px;
+}
+
+.loading-div {
+    width: 50px;
+    display: none;
+}
+
+
+#div_erros_login {
+    display: none
+}
+
+/* 
+Aqui inicia-se o footer
+e se finaliza o cadastro
+*/
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-self: flex-end;
+    flex-direction: column;
+    padding: 20px 100px;
+    gap: 10px;
+    height: 270px;
+    background: #DF2588
+}
+
+.footer p {
+    justify-self: flex-start;
+    width: 100%;
+    color: white;
+    font-size: 14px;
+
+
+}
+
+.footer_wrapper {
+    display: flex;
+    width: 100%;
+    height: 85%;
+    border-bottom: 2px solid white;
+    justify-content: space-between;
+    align-self: flex;
+
+}
+
+.footer_wrapper ul {
+    display: flex;
+    height: 80%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.footer_wrapper ul li a {
+    color: white;
+    font-size: 14px;
+
+}

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ali Hazelwood | Home</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" href="./assets/logo_comfundo.png">
+</head>
+
+<body>
+  <div class="header">
+    <div class="logo_wrapper">
+      <img class="logo" width="250vh" height="70vh" src="./assets/logo_semfundo_site.png" alt="">
+    </div>
+    <ul class="navbar">
+      <li class="agora">
+        <a href="index.html">HOME</a>
+      </li>
+      <li>
+        <a href="index.html#id_escritora">ESCRITORA</a>
+      </li>
+    </ul>
+    <button>
+      <a href="login.html">LOGIN</a>
+    </button>
+  </div>
+
+  <div></div>
+  <div class="content-wrapper_2">
+    <div class="hero_content_2">
+      <div class="main_text_2">
+        <div class="livros">
+          <h2>LIVROS </h2> <img class="imagem_livros" src="./assets/livros-Photoroom.png" alt="">
+        </div>
+        <p>
+          Conheça as histórias que vão fazer seu coração bater mais forte
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="social_2">
+    <div class="container_2">
+      <p>ROMANCES</p>
+      <div class="boxes_todos">
+        <div class="box_1">
+          <h4>A RAZÃO DO AMOR</h4> <br> <br>
+          <img class="imagem" src="./assets/a_razao_do_amor.png" style="width: 25dvh;">
+          <button onclick="abrirModal('modal_1')">Ver sinopse</button>
+        </div>
+
+
+        <div class="box_2">
+          <h4>AMOR, TEORIAMENTE</h4> <br> <br>
+          <img src="./assets/amor-teoricamente-ali-hazelwood_large.webp" style="width: 25dvh;">
+          <button onclick="abrirModal('modal_2')">Ver sinopse</button>
+        </div>
+
+
+        <div class="box_3">
+          <h4>XEQUE-MATE</h4> <br> <br>
+          <img src="./assets/xeque_mate.jpg" style="width: 25dvh;">
+          <button onclick="abrirModal('modal_3')">Ver sinopse</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="social_3">
+    <div class="container_3">
+      <p>FICÇÃO</p>
+      <div class="boxes_todos_1">
+        <div class="box_4">
+          <h4>A HIPÓTESE DO AMOR</h4> <br> <br>
+          <img class="imagem" src="./assets/hipotese_do_amor.jpg" style="width: 25dvh;">
+          <button onclick="abrirModal('modal_4')">Ver sinopse</button>
+        </div>
+
+
+        <div class="box_5">
+          <h4>ODEIO TE AMAR</h4> <br> <br>
+          <img src="./assets/odeio_te_amar.png" style="width: 25dvh;">
+          <button onclick="abrirModal('modal_5')">Ver sinopse</button>
+        </div>
+
+
+        <div class="box_6">
+          <h4>NOIVA</h4> <br> <br>
+          <img src="./assets/noiva.jpg" style="width: 25dvh;">
+          <button onclick="abrirModal('modal_6')">Ver sinopse</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- aqui inicia o Modal livros de romance -->
+
+  <div class="modal" id="modal_1">
+    <div class="modal_body">
+      <div class="modal_header">
+        <h3>A RAZÃO DO AMOR</h3>
+        <h3>Sinopse</h3>
+      </div>
+      <p class="modal_text">
+        A razão do amor a história de Bee Königswasser, uma neurocientista que se torna líder de um projeto da NASA.
+        Ela precisa trabalhar com o seu antigo rival, Levi Ward, o que cria uma dinâmica de competição e atração entre
+        os dois, desafiando suas teorias sobre o amor e a ciência
+      </p>
+
+      <div class="modal_ação">
+        <button class="ação_sucesso" onclick="fecharModal('modal_1')">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal_2">
+    <div class="modal_body">
+      <div class="modal_header">
+        <h3>AMOR, TEORICAMENTE</h3>
+        <h3>Sinopse</h3>
+      </div>
+      <p class="modal_text">
+        É sobre Elsie Hannaway, uma física teórica que trabalha como namorada de mentira para complementar sua renda,
+        e sua rivalidade
+        com o físico experimentalista Jack Smith. A história é uma comédia romântica que explora a complexa dinâmica
+        entre eles,
+        onde ambos são obrigados a trabalhar juntos em uma situação acadêmica que desafia suas teorias sobre o amor,
+        além de abordar questões
+        como machismo na ciência e dificuldades financeiras.
+
+      <div class="modal_ação">
+        <button class="ação_sucesso" onclick="fecharModal('modal_2')">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal_3">
+    <div class="modal_body">
+      <div class="modal_header">
+        <h3>XEQUE-MATE</h3>
+        <h3>Sinopse</h3>
+      </div>
+      <p class="modal_text">
+        Mallory Greenleaf, uma jovem que abandonou o xadrez há quatro anos e agora só quer se manter financeiramente
+        para cuidar da família.
+        Tudo muda quando ela relutantemente participa de um torneio e, sem querer, derrota o campeão mundial, Nolan
+        Sawyer. A notícia abala o mundo do xadrez,
+        e Nolan fica obcecado em enfrentá-la novamente, enquanto Mallory, apesar da vontade de se afastar, se sente
+        atraída por ele e percebe que o esporte pode
+        ser sua chance de ganhar prêmios e que a competição vai além do tabuleiro.
+
+      <div class="modal_ação">
+        <button class="ação_sucesso" onclick="fecharModal('modal_3')">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- aqui fecha o modal dos livros de romance
+  e começa o modal de livros de ficção -->
+
+  <div class="modal" id="modal_4">
+    <div class="modal_body">
+      <div class="modal_header">
+        <h3>A HIPÓTESE DO AMOR</h3>
+        <h3>Sinopse</h3>
+      </div>
+      <p class="modal_text">
+        Neste livro, narra a história de Olive Smith, uma estudante de doutorado em Biologia, que finge um namoro com o
+        professor
+        renomado Adam Carlsen para convencer sua melhor amiga de que está bem. O namoro falso se torna mais complicado
+        do que o planejado,
+        pois a atração real começa a crescer entre eles.
+
+      <div class="modal_ação">
+        <button class="ação_sucesso" onclick="fecharModal('modal_4')">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal_5">
+    <div class="modal_body">
+      <div class="modal_header">
+        <h3>ODEIO TE AMAR</h3>
+        <h3>Sinopse</h3>
+      </div>
+      <p class="modal_text">
+        "Odeio te amar" é uma coleção de três histórias românticas de Ali Hazelwood,
+        centradas em três amigas cientistas: Mara, Sadie e Hannah. As histórias exploram o tema "hate-to-love"
+        (do ódio ao amor), onde elas se envolvem com homens que inicialmente detestam. A coletânea inclui narrativas
+        como a engenheira ambiental Mara tendo que dividir a casa com um advogado de uma petroleira, a engenheira civil
+        Sadie
+        ficando presa em um elevador com um ex-namorado, e a engenheira aeroespacial Hannah sendo resgatada no Ártico
+        por seu arqui-inimigo.
+      </p>
+
+      <div class="modal_ação">
+        <button class="ação_sucesso" onclick="fecharModal('modal_5')">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal_6">
+    <div class="modal_body">
+      <div class="modal_header">
+        <h3>NOIVA</h3>
+        <h3>Sinopse</h3>
+      </div>
+      <p class="modal_text">
+        Conta a história de Misery, uma vampira que se vê obrigada a se casar com o alfa Lowe, o representante do
+        maior inimigo do seu povo: os licanos. O casamento que começou como uma aliança política logo começa a mudar
+        e Misery e Lowe vão se apaixonando e desenvolvendo a confiança um no outro.
+      </p>
+
+      <div class="modal_ação">
+        <button class="ação_sucesso" onclick="fecharModal('modal_6')">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="mensagem"></div>
+
+  <!-- aqui finaliza o script e começa o footer -->
+
+  <div class="footer">
+    <div class="footer_wrapper">
+      <ul>
+        <li>
+          <a href="homepage.html">HOME</a>
+        </li>
+        <li>
+          <a href="index.html#id_escritora">ESCRITORA</a>
+        </li>
+        <li>
+          <a href="sobre_mim.html">SOBRE MIM</a>
+        </li>
+        <li>
+          <a href="cadastro.html">ANALISE DE DESEMPENHO</a>
+        </li>
+        <li>
+          <a href="cadastro.html">PRIMEIRO ACESSO</a>
+        </li>
+        <li>
+          <a href="login.html">LOGIN</a>
+        </li>
+      </ul>
+      <img class="logo" width="300vh" height="100vh" src="./assets/logo_semfundo_site.png" alt=""
+        onclick="imagemVolta()">
+    </div>
+  </div class="credenciais">
+  <p>&copy; 2025 Samara Mendonça - Todos os direitos Reservados</p>
+  </div>
+</body>
+
+</html>
+
+<script>
+  function abrirModal(idDoModal) {
+    // pega elemento modal 
+    const modal = document.getElementById(idDoModal);
+
+    // Verifica se o modal existe e muda seu estilo para 'flex' (ou 'block')
+    if (modal) {
+      modal.style.display = 'flex';
+    }
+  }
+
+  // função genérica que é usada para todas as função no HTML, para não criar seis funções
+  // usando o 
+
+  function fecharModal(idDoModal) {
+    // Obtém o elemento modal do DOM
+    const modal = document.getElementById(idDoModal);
+
+    // ver se o modal existe e muda seu estilo para 'none'
+    if (modal) {
+      modal.style.display = 'none';
+    }
+  }
+
+
+</script>
