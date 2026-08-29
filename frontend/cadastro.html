@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ali Hazelwood | Cadastro</title>
+
+  <script src="./js/sessao.js"></script>
+  
+  <link rel="stylesheet" href="./css/estilo.css">
+  <link rel="icon" href="./assets/logo_comfundo.png">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+  <!--Header-->
+
+  <body>
+  <div class="header">
+    <div class="logo_wrapper">
+      <img class="logo" width="250vh" height="70vh" src="./assets/logo_semfundo_site.png" alt="">
+    </div>
+    <ul class="navbar">
+      <li class="agora">
+        <a href="index.html">HOME</a>
+      </li>
+      <li>
+        <a href="index.html#id_escritora">ESCRITORA</a>
+      </li>
+      <li>
+        <a href="sobre_mim.html">SOBRE MIM</a>
+      </li>
+      <li>
+        <a href="mural.html">COMUNIDADE</a>
+      </li>
+      <li>
+        <a href="cadastro.html">PRIMEIRO ACESSO</a>
+      </li>
+    </ul>
+    <button>
+      <a href="login.html">LOGIN</a>
+    </button>
+  </div>
+
+
+    <div class="cadastro" style="background-image: url(./assets/fundo.jpg);">
+      <div class="alerta_erro">
+        <div class="card_erro" id="cardErro">
+          <span id="mensagem_erro"></span>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="card_cadastro">
+          <h2><b>CADASTRO</b></h2>
+          <div class="formulario">
+            <div class="campo">
+              <!-- <span>Nome:</span> -->
+              <input id="nome_input" type="text" placeholder="Username"> <i class="bx bxs-user"></i>
+              
+            </div>
+            <div class="campo">
+              <!-- <span>E-mail:</span> -->
+              <input id="email_input" type="text" placeholder="Email"> <i class="bx bxs-envelope-open"></i>
+            </div>
+            <div class="campo">
+              <!-- <span>Data de Nascimento:</span> -->
+              <input id="dtNasc_input" type="date" placeholder="Data de Nascimento"> 
+              <i class="bx bxs-calendar-week"></i>
+            </div>
+            <div class="campo">
+              <!-- <span>Senha:</span> -->
+              <input id="senha_input" type="password" placeholder="Senha"> <i class="bx bxs-lock-alt"></i>
+            </div>
+            <div class="campo">
+              <!-- <span>Confirmar senha:</span> -->
+              <input id="confSenha_input" type="password" placeholder="Confirmar Senha"> <i class="bx bxs-lock-alt"></i>
+            </div>
+            <button class="botao" onclick="cadastrar()">Entrar</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!--footer inicio-->
+    <div class="footer">
+      <div class="footer_wrapper">
+        <ul>
+          <li>
+            <a href="homepage.html">HOME</a>
+          </li>
+          <li>
+            <a href="index.html#id_escritora">ESCRITORA</a>
+          </li>
+          <li>
+            <a href="">SOBRE MIM</a>
+          </li>
+          <li>
+            <a href="cadastro.html">ANALISE DE DESEMPENHO</a>
+          </li>
+          <li>
+            <a href="cadastro.html">PRIMEIRO ACESSO</a>
+          </li>
+          <li>
+            <a href="login.html">LOGIN</a>
+          </li>
+        </ul>
+        <img class="logo" width="300vh" height="100vh" src="./assets/logo_semfundo_site.png" alt=""
+          onclick="imagemVolta()">
+      </div>
+    </div class="credenciais">
+    <p>&copy; 2025 Samara Mendonça - Todos os direitos Reservados</p>
+    </div>
+    <!--footer fim-->
+
+  </body>
+
+</html>
+
+<script>
+
+  // Array para armazenar empresas cadastradas para validação de código de ativação 
+  let listaEmpresasCadastradas = [];
+
+  function cadastrar() {
+    // aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = nome_input.value;
+    var emailVar = email_input.value;
+    var dtNascVar = dtNasc_input.value;
+    var senhaVar = senha_input.value;
+
+    // Verificando se há algum campo em branco
+    if (
+      nomeVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      dtNascVar == " "
+      // confirmacaoSenhaVar == "" ||
+      // codigoVar == ""
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para todos os campos em branco)";
+
+      // finalizarAguardar();
+      return false;
+    // } else {
+    //   setInterval(sumirMensagem, 5000);
+    }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+        dtNascServer: dtNascVar
+        // idEmpresaVincularServer: idEmpresaVincular
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          alert('Cadastro realizado com sucesso! Redirecionando para tela de Login...')
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "1000");
+
+          // limparFormulario();
+          // finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        // finalizarAguardar();
+      });
+
+    return false;
+  }
+</script>

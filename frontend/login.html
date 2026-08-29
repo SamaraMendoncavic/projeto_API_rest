@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali Hazelwood | Login</title>
+
+    <script src="./js/sessao.js"></script>
+
+
+    <link rel="stylesheet" href="./css/estilo.css">
+    <link rel="icon" href="./assets/logo_comfundo.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <!--Header-->
+
+    <body>
+        <div class="header">
+            <div class="logo_wrapper">
+                <img class="logo" width="250vh" height="70vh" src="./assets/logo_semfundo_site.png" alt="">
+            </div>
+            <ul class="navbar">
+                <li class="agora">
+                    <a href="index.html">HOME</a>
+                </li>
+                <li>
+                    <a href="index.html#id_escritora">ESCRITORA</a>
+                </li>
+                <li>
+                    <a href="sobre_mim.html">SOBRE MIM</a>
+                </li>
+                <li>
+                    <a href="mural.html">COMUNIDADE</a>
+                </li>
+                <li>
+                    <a href="cadastro.html">PRIMEIRO ACESSO</a>
+                </li>
+            </ul>
+            <button>
+                <a href="login.html">LOGIN</a>
+            </button>
+        </div>
+
+        <div class="login" style="background-image: url(./assets/fundo.jpg);">
+            <div class="alerta_erro">
+                <div class="card_erro" id="cardErro">
+                    <span id="mensagem_erro"></span>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card_login">
+                    <h2><b>LOGIN</b></h2>
+                    <div class="formulario">
+                        <div class="campo">
+                            <!-- <span>E-mail:</span> -->
+                            <input id="email_input" type="text" placeholder="Email"> <i
+                                class="bx bxs-envelope-open"></i>
+                            <span id="span1"></span>
+                        </div>
+                        <div class="campo">
+                            <!-- <span>Senha:</span> -->
+                            <input id="senha_input" type="password" placeholder="Senha" > <i
+                                class="bx bxs-lock-alt"></i>
+                        </div>
+                        <button class="botao" onclick="entrar()">Entrar</button>
+                    </div>
+
+                    <!-- <div id="div_aguardar" class="loading-div">
+                        <img src="./assets/circle-loading.gif" id="loading-gif">
+                    </div> -->
+
+                    <div id="div_erros_login"></div>
+                </div>
+            </div>
+        </div>
+
+        <!--footer inicio-->
+        <div class="footer">
+            <div class="footer_wrapper">
+                <ul>
+                    <li>
+                        <a href="homepage.html">HOME</a>
+                    </li>
+                    <li>
+                        <a href="index.html#id_escritora">ESCRITORA</a>
+                    </li>
+                    <li>
+                        <a href="">SOBRE MIM</a>
+                    </li>
+                    <li>
+                        <a href="cadastro.html">ANALISE DE DESEMPENHO</a>
+                    </li>
+                    <li>
+                        <a href="cadastro.html">PRIMEIRO ACESSO</a>
+                    </li>
+                    <li>
+                        <a href="login.html">LOGIN</a>
+                    </li>
+                </ul>
+                <img class="logo" width="300vh" height="100vh" src="./assets/logo_semfundo_site.png" alt=""
+                    onclick="imagemVolta()">
+            </div>
+        </div class="credenciais">
+        <p>&copy; 2025 Samara Mendonça - Todos os direitos Reservados</p>
+        </div>
+        <!--footer fim-->
+
+    </body>
+
+</html>
+
+<script>
+
+
+    function entrar() {
+        // aguardar();
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            // finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+                    // sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/dashboard.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    // finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>
