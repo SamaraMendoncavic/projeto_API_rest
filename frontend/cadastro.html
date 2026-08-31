@@ -70,6 +70,22 @@
               <i class="bx bxs-calendar-week"></i>
             </div>
             <div class="campo">
+              <!-- <span>Idade:</span> -->
+              <input id="idade_input" type="number" placeholder="Idade" min="1">
+            </div>
+            <div class="campo">
+              <span>Gênero:</span>
+              <label><input type="radio" name="genero" value="Feminino"> Feminino</label>
+              <label><input type="radio" name="genero" value="Masculino"> Masculino</label>
+            </div>
+            <div class="campo">
+              <label><input type="checkbox" id="newsletter_input"> Quero receber novidades por e-mail</label>
+            </div>
+            <div class="campo">
+              <span>Gênero literário favorito:</span>
+              <select id="genero_literario_select"></select>
+            </div>
+            <div class="campo">
               <!-- <span>Senha:</span> -->
               <input id="senha_input" type="password" placeholder="Senha"> <i class="bx bxs-lock-alt"></i>
             </div>
@@ -121,75 +137,100 @@
 
 <script>
 
-  // Array para armazenar empresas cadastradas para validação de código de ativação 
-  let listaEmpresasCadastradas = [];
+  const API_URL = "http://localhost:8080";
+
+  // Popula o <select> assim que a página carrega, buscando os dados na API
+  window.addEventListener("DOMContentLoaded", function () {
+    fetch(`${API_URL}/generos-literarios`)
+      .then(resposta => resposta.json())
+      .then(function (lista) {
+        const select = document.getElementById("genero_literario_select");
+        lista.forEach(function (genero) {
+          const option = document.createElement("option");
+          option.value = genero.id;
+          option.textContent = genero.nome;
+          select.appendChild(option);
+        });
+      })
+      .catch(function (erro) {
+        console.log("Erro ao carregar gêneros literários: ", erro);
+      });
+  });
+
+  function mostrarErro(mensagem) {
+    cardErro.style.display = "block";
+    mensagem_erro.innerHTML = mensagem;
+  }
 
   function cadastrar() {
-    // aguardar();
-
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
-    var nomeVar = nome_input.value;
-    var emailVar = email_input.value;
+    var nomeVar = nome_input.value.trim();
+    var emailVar = email_input.value.trim();
     var dtNascVar = dtNasc_input.value;
+    var idadeVar = idade_input.value;
     var senhaVar = senha_input.value;
+    var confSenhaVar = confSenha_input.value;
+    var generoInput = document.querySelector('input[name="genero"]:checked');
+    var newsletterVar = newsletter_input.checked;
+    var generoLiterarioVar = genero_literario_select.value;
 
-    // Verificando se há algum campo em branco
-    if (
-      nomeVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
-      dtNascVar == " "
-      // confirmacaoSenhaVar == "" ||
-      // codigoVar == ""
-    ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
-
-      // finalizarAguardar();
+    // Validação client-side (não substitui a validação do back-end)
+    if (nomeVar === "" || emailVar === "" || senhaVar === "" || dtNascVar === "" || idadeVar === "") {
+      mostrarErro("Preencha todos os campos obrigatórios.");
       return false;
-    // } else {
-    //   setInterval(sumirMensagem, 5000);
+    }
+    if (!/^[\w.+-]+@[\w-]+\.[a-zA-Z]{2,}$/.test(emailVar)) {
+      mostrarErro("Digite um e-mail válido.");
+      return false;
+    }
+    if (Number(idadeVar) <= 0) {
+      mostrarErro("Digite uma idade válida.");
+      return false;
+    }
+    if (!generoInput) {
+      mostrarErro("Selecione um gênero.");
+      return false;
+    }
+    if (senhaVar.length < 6) {
+      mostrarErro("A senha deve ter pelo menos 6 caracteres.");
+      return false;
+    }
+    if (senhaVar !== confSenhaVar) {
+      mostrarErro("As senhas não coincidem.");
+      return false;
     }
 
-    // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
+    // Envia os dados para a API (nomes dos campos batem com Usuario.java)
+    fetch(`${API_URL}/usuarios/cadastrar`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        nomeServer: nomeVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar,
-        dtNascServer: dtNascVar
-        // idEmpresaVincularServer: idEmpresaVincular
+        nome: nomeVar,
+        email: emailVar,
+        senha: senhaVar,
+        dtNascimento: dtNascVar,
+        idade: Number(idadeVar),
+        genero: generoInput.value,
+        aceitaNewsletter: newsletterVar,
+        generoLiterarioId: Number(generoLiterarioVar)
       }),
     })
       .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
         if (resposta.ok) {
-          cardErro.style.display = "block";
-
-          alert('Cadastro realizado com sucesso! Redirecionando para tela de Login...')
-
+          alert('Cadastro realizado com sucesso! Redirecionando para tela de Login...');
           setTimeout(() => {
             window.location = "login.html";
-          }, "1000");
-
-          // limparFormulario();
-          // finalizarAguardar();
+          }, 1000);
         } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
+          resposta.text().then(function (texto) {
+            mostrarErro(texto || "Houve um erro ao tentar realizar o cadastro!");
+          });
         }
       })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        // finalizarAguardar();
+      .catch(function (erro) {
+        console.log(`#ERRO: ${erro}`);
+        mostrarErro("Não foi possível conectar ao servidor.");
       });
 
     return false;

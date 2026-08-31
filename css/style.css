@@ -785,7 +785,7 @@ e se inicia a tela de login */
 
 .card_cadastro {
     width: 50dvh;
-    height: 54dvh;
+    height: 80dvh;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(10px);
@@ -857,6 +857,37 @@ e se inicia a tela de login */
 
 .campo input::placeholder {
     color: #fff;
+}
+
+/* Radio e checkbox não devem herdar width/height 100% do input genérico */
+.campo input[type="radio"],
+.campo input[type="checkbox"] {
+    width: auto;
+    height: auto;
+    border: none;
+    margin-right: 6px;
+}
+
+.campo label {
+    display: inline-flex;
+    align-items: center;
+    color: #fff;
+    font-size: 14px;
+    margin-right: 12px;
+}
+
+.campo select {
+    width: 100%;
+    padding: 1.3dvh;
+    background-color: transparent;
+    border-radius: 40px;
+    border: 2px solid rgba(255, 255, 255, .2);
+    color: #fff;
+    outline: none;
+}
+
+.campo select option {
+    color: #000;
 }
 
 .campo span {
