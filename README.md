@@ -12,7 +12,7 @@ projeto_API_rest/
 │   └── style.css
 └── frontend/
     ├── index.html        # Página inicial
-    ├── index_2.html      # Página inicial (variação)
+    ├── index_2.html      # Página inicial (Após login)
     ├── login.html        # Tela de login
     ├── cadastro.html     # Tela de cadastro de usuário
     ├── js/
