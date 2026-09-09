@@ -2,7 +2,7 @@
 
 Front-end (HTML, CSS e JavaScript puro) de uma plataforma de cadastro e login de usuários, com seleção de gêneros literários favoritos. Esta interface consome a API REST desenvolvida em Spring Boot disponível no repositório de back-end.
 
-🔗 **Repositório do Back-End:** [projeto_API_rest_Back_End](https://github.com/SamaraMendoncavic/projeto_API_rest_Back_End.git)
+**Repositório do Back-End:** [projeto_API_rest_Back_End](https://github.com/SamaraMendoncavic/projeto_API_rest_Back_End.git)
 
 ## Estrutura do projeto (Arquivos)
 
@@ -27,7 +27,7 @@ Este projeto é HTML/CSS/JS estático. Basta um navegador e um servidor local si
 ### Pré-requisitos
 
 - Um navegador atualizado (Chrome, Firefox, Edge etc.)
-- ⚠️ **O back-end (API) precisa estar rodando em `http://localhost:8080`** antes de usar login e cadastro — veja o repositório do back-end linkado acima.
+- **O back-end (API) precisa estar rodando em `http://localhost:8080`** antes de usar login e cadastro — veja o repositório do back-end linkado acima.
 
 ### Passo a passo
 
